@@ -1,10 +1,11 @@
 {
   "name": "@astuteo/ph-enhancer",
   "version": "1.0.0",
-  "description": "A utility for tracking custom user interactions using PostHog",
+  "description": "PostHog enhancer utilities for Astuteo projects.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "type": "module",
   "files": [
     "dist"
   ],
@@ -17,8 +18,14 @@
     "analytics",
     "posthog"
   ],
-  "author": "Astuteo LLC - https://www.astuteo.com",
+  "engines": {
+    "node": ">=16"
+  },
+  "author": "Astuteo, LLC",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "posthog-js": "^1.0.0"
   },
