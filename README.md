@@ -61,7 +61,7 @@ trackThemePreference();
 
 - **Theme Preference Tracking**: Automatically tracks user's light/dark mode preference
 - **Search Tracking**: Track search queries and results
-- **Organization Tracking**: Track organization information (requires backend API)
+- **Organization Tracking**: Track organization information including name and ISP status (requires backend API)
 
 ## API Reference
 

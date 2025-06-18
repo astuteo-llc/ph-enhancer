@@ -147,7 +147,9 @@ export const trackOrganization = async (authKey = false) => {
   try {
     if (typeof window === 'undefined' || !posthog?.capture) return false;
 
-    const response = await fetch(`/astuteo-toolkit/info?authKey=${encodeURIComponent(authKey)}`);
+    // Double encode the + character to prevent PHP from interpreting it as a space
+    const encodedAuthKey = encodeURIComponent(authKey.replace(/\+/g, '%2B'));
+    const response = await fetch(`/astuteo-toolkit/info?authKey=${encodedAuthKey}`);
 
     if (!response.ok) {
       console.error('Failed to fetch organization data:', response.statusText);
@@ -162,11 +164,15 @@ export const trackOrganization = async (authKey = false) => {
 
     // Track the organization as an event
     trackEvent(EVENTS.ORGANIZATION, {
-      organization: data.organization
+      organization: data.organization,
+      is_isp: data.is_isp || false
     });
 
     // Also set it as a user property
-    posthog.people.set({ organization: data.organization });
+    posthog.people.set({ 
+      organization: data.organization,
+      is_isp: data.is_isp || false
+    });
 
     return true;
   } catch (error) {

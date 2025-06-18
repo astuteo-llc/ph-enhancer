@@ -37,6 +37,18 @@ export interface SearchData {
 }
 
 /**
+ * Organization data for tracking organization information
+ */
+export interface OrganizationData {
+  /** Organization name */
+  organization: string;
+  /** Whether the organization is an ISP */
+  is_isp?: boolean;
+  /** Any additional properties */
+  [key: string]: any;
+}
+
+/**
  * Core function to track custom events with PostHog
  * @param eventName - Name of the event to track
  * @param properties - Additional properties to include with the event
