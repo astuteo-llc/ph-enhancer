@@ -11,7 +11,14 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "version:patch": "npm version patch",
+    "version:minor": "npm version minor",
+    "version:major": "npm version major",
+    "prepublishOnly": "npm run build",
+    "release:patch": "npm run version:patch && npm publish",
+    "release:minor": "npm run version:minor && npm publish",
+    "release:major": "npm run version:major && npm publish"
   },
   "keywords": [
     "tracking",

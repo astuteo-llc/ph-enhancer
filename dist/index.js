@@ -152,7 +152,7 @@ const trackOrganization = async (authKey = false) => {
   try {
     if (typeof window === 'undefined' || !posthog?.capture) return false;
 
-    const response = await fetch(`/astuteo-toolkit/info?authKey=${authKey}`);
+    const response = await fetch(`/astuteo-toolkit/info?authKey=${encodeURIComponent(authKey)}`);
 
     if (!response.ok) {
       console.error('Failed to fetch organization data:', response.statusText);
