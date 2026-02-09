@@ -1,6 +1,6 @@
 {
   "name": "@astuteo/ph-enhancer",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "PostHog enhancer utilities for Astuteo projects.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
